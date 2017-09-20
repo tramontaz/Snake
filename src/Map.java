@@ -1,7 +1,17 @@
-import javax.swing.*;
 import java.awt.*;
 
-class Map extends JPanel {
+class Map extends ImagePanel {
+    Image image;
+
+    private Image img;
+
+    Map(String img) {
+        super(img);
+    }
+
+    Map(Image img) {
+        super(img);
+    }
 
     @Override
     public void paint(Graphics g) {
@@ -12,8 +22,8 @@ class Map extends JPanel {
             g.setColor(Color.RED);
             g.setFont(new Font("Arial", Font.BOLD, 40));
             FontMetrics fontMetrics = g.getFontMetrics();
-            g.drawString("GAME OVER", (GUI.FIELD_WIDTH * GUI.POINT_RADIUS + GUI.FIELD_DX - fontMetrics.stringWidth("GAME OVER")) / 2,
-                    (GUI.FIELD_HEIGHT * GUI.POINT_RADIUS + GUI.FIELD_DY) / 2);
+            g.drawString("GAME OVER", (StartNewGame.FIELD_WIDTH * Point.POINT_RADIUS + StartNewGame.FIELD_DX - fontMetrics.stringWidth("GAME OVER")) / 2,
+                    (StartNewGame.FIELD_HEIGHT * Point.POINT_RADIUS + StartNewGame.FIELD_DY) / 2);
         }
     }
 }

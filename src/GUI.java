@@ -10,26 +10,20 @@ class GUI extends JFrame implements ActionListener {
     private JButton btnNewGame = new JButton("New Game");
     private JButton btnExit = new JButton("Exit");
     private JPanel jPanelForButton = new JPanel();
+    private ImagePanel grassPanel;
     static final int SHOW_DELAY = 100;
     static JFrame newGameWindow;
-
-    static final int LEFT = 37;
-    static final int UP = 38;
-    static final int RIGHT = 39;
-    static final int DOWN = 40;
-    static final int POINT_RADIUS = 20; // in pix
-    static final int FIELD_WIDTH = 30; // in point
-    static final int FIELD_HEIGHT = 20;
-    static final int FIELD_DX = 6;
-    static final int FIELD_DY = 28;
 
 
     GUI() {
         newGameWindow = new JFrame(WINDOW_TITLE);
         newGameWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        newGameWindow.setSize(FIELD_WIDTH * POINT_RADIUS + FIELD_DX, FIELD_HEIGHT * POINT_RADIUS + FIELD_DY);
+        newGameWindow.setSize(640, 480);
         newGameWindow.setLocation(START_LOCATION, START_LOCATION);
         newGameWindow.setResizable(false);
+
+        grassPanel = new ImagePanel(new ImageIcon("images/Snake4.jpg").getImage());
+        newGameWindow.getContentPane().add(grassPanel);
 
         jPanelForButton.setLayout(new GridLayout());
         jPanelForButton.add(btnNewGame);

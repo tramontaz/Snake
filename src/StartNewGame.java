@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -9,7 +8,10 @@ class StartNewGame implements Runnable {
     private static Map map;
     static boolean gameOver = false;
     private static JFrame frame;
-
+    static final int FIELD_WIDTH = 30; // in point
+    static final int FIELD_HEIGHT = 20;
+    static final int FIELD_DX = 6;
+    static final int FIELD_DY = 28;
 
     private final int START_SNAKE_X = 10;
     private final int START_SNAKE_Y = 10;
@@ -26,21 +28,18 @@ class StartNewGame implements Runnable {
         GUI.newGameWindow.setVisible(false);
         frame = new JFrame(GUI.WINDOW_TITLE);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(GUI.FIELD_WIDTH * GUI.POINT_RADIUS + GUI.FIELD_DX, GUI.FIELD_HEIGHT * GUI.POINT_RADIUS + GUI.FIELD_DY);
+        frame.setSize(FIELD_WIDTH * Point.POINT_RADIUS + FIELD_DX, FIELD_HEIGHT * Point.POINT_RADIUS + FIELD_DY);
         frame.setLocation(GUI.START_LOCATION, GUI.START_LOCATION);
         frame.setResizable(false);
 
-        map = new Map();
-        map.setBackground(Color.WHITE);
-        frame.getContentPane().add(BorderLayout.CENTER, map);
+        map = new Map(new ImageIcon("images/Grass.jpg").getImage());
+        frame.getContentPane().add(map);
         frame.addKeyListener(keyAdapter);
 
         frame.setVisible(true);
 
-        snake = new Snake(START_SNAKE_X, START_SNAKE_Y, START_SNAKE_SIZE, GUI.RIGHT);
+        snake = new Snake(START_SNAKE_X, START_SNAKE_Y, START_SNAKE_SIZE, Snake.RIGHT);
         food = new Food();
-
-
 
 
         while (!gameOver) {

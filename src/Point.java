@@ -1,14 +1,17 @@
 import java.awt.*;
 
 class Point {
+
+
     private int x, y;
     Color color = Color.BLACK;
+    static final int POINT_RADIUS = 20;
 
     Point(int x, int y) {
         this.setXY(x, y);
     }
 
-    void setXY (int x, int y) {
+    void setXY(int x, int y) {
         this.x = x;
         this.y = y;
     }

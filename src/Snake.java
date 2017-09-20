@@ -3,7 +3,10 @@ import java.util.ArrayList;
 
 class Snake {
 
-
+    private static final int LEFT = 37;
+    private static final int UP = 38;
+    static final int RIGHT = 39;
+    private static final int DOWN = 40;
     private ArrayList<Point> snake = new ArrayList<>();
     private int direction;
 
@@ -25,14 +28,14 @@ class Snake {
     void move() {
         int x = snake.get(0).getX();
         int y = snake.get(0).getY();
-        if (direction == GUI.LEFT) x--;
-        if (direction == GUI.RIGHT) x++;
-        if (direction == GUI.UP) y--;
-        if (direction == GUI.DOWN) y++;
-        if (x > GUI.FIELD_WIDTH - 1) x = 0;
-        if (x < 0) x = GUI.FIELD_WIDTH - 1;
-        if (y > GUI.FIELD_HEIGHT) y = 0;
-        if (y < 0) y = GUI.FIELD_HEIGHT - 1;
+        if (direction == LEFT) x--;
+        if (direction == RIGHT) x++;
+        if (direction == UP) y--;
+        if (direction == DOWN) y++;
+        if (x > StartNewGame.FIELD_WIDTH - 1) x = 0;
+        if (x < 0) x = StartNewGame.FIELD_WIDTH - 1;
+        if (y > StartNewGame.FIELD_HEIGHT) y = 0;
+        if (y < 0) y = StartNewGame.FIELD_HEIGHT - 1;
         StartNewGame.gameOver = isInsideSnake(x, y);
         snake.add(0, new Point(x, y));
         if (isFood(StartNewGame.food)) {
@@ -42,11 +45,11 @@ class Snake {
     }
 
     void setDirection(int direction) {
-        if ((direction >= GUI.LEFT) && (direction <= GUI.DOWN)) {
-                if (Math.abs(this.direction - direction) != 2) {
-                    this.direction = direction;
-                }
+        if ((direction >= Snake.LEFT) && (direction <= Snake.DOWN)) {
+            if (Math.abs(this.direction - direction) != 2) {
+                this.direction = direction;
             }
+        }
     }
 
     private boolean isFood(Point food) {
@@ -58,6 +61,7 @@ class Snake {
             if ((point.getX() == x) && (point.getY() == y)) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
 }
