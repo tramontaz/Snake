@@ -17,7 +17,8 @@ class StartNewGame implements Runnable {
 
 
     StartNewGame() {
-        run();
+        Thread thread = new Thread(this);
+        thread.start();
     }
 
     @Override
@@ -55,6 +56,12 @@ class StartNewGame implements Runnable {
                 e.printStackTrace();
             }
         }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        GUI.newGameWindow.setVisible(true);
     }
 
     private KeyAdapter keyAdapter = new KeyAdapter() {
