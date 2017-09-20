@@ -1,10 +1,10 @@
 import java.awt.*;
 
-public class Point {
-    int x, y;
+class Point {
+    private int x, y;
     Color color = Color.BLACK;
 
-    public Point(int x, int y) {
+    Point(int x, int y) {
         this.setXY(x, y);
     }
 
@@ -18,11 +18,11 @@ public class Point {
         g.fillOval(x * 20, y * 20, 20, 20);
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 }
