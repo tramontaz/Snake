@@ -1,13 +1,21 @@
 import java.awt.*;
 
-class Point {
-
+class Point extends ImagePanel {
 
     private int x, y;
     Color color = Color.BLACK;
     static final int POINT_RADIUS = 20;
 
-    Point(int x, int y) {
+    Point(String img) {
+        super(img);
+    }
+
+    Point(Image img) {
+        super(img);
+    }
+
+    Point(String img, int x, int y) {
+        super(img);
         this.setXY(x, y);
     }
 
@@ -16,16 +24,16 @@ class Point {
         this.y = y;
     }
 
-    void paint(Graphics g) {
+    public void paint(Graphics g) {
         g.setColor(color);
-        g.fillOval(x * 20, y * 20, 20, 20);
+        g.drawImage(img, x * 20, y * 20, null);
     }
 
-    int getX() {
+    public int getX() {
         return x;
     }
 
-    int getY() {
+    public int getY() {
         return y;
     }
 }

@@ -1,7 +1,6 @@
 import java.awt.*;
 
 class Map extends ImagePanel {
-    Image image;
 
     private Image img;
 

@@ -12,7 +12,7 @@ class Snake {
 
     Snake(int x, int y, int length, int direction) {
         for (int i = 0; i < length; i++) {
-            Point point = new Point(x - i, y);
+            Point point = new Point("images/snake_body2.png" ,x - i, y);
             snake.add(point);
         }
         this.direction = direction;
@@ -37,7 +37,7 @@ class Snake {
         if (y > StartNewGame.FIELD_HEIGHT) y = 0;
         if (y < 0) y = StartNewGame.FIELD_HEIGHT - 1;
         StartNewGame.gameOver = isInsideSnake(x, y);
-        snake.add(0, new Point(x, y));
+        snake.add(0, new Point("images/snake_body2.png" ,x, y));
         if (isFood(StartNewGame.food)) {
             StartNewGame.food.eat();
         } else snake.remove(snake.size() - 1);

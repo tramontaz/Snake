@@ -5,7 +5,7 @@ class Food extends Point {
     private Random random = new Random();
 
     Food() {
-        super(-1, -1);
+        super("images/food2.png",-1, -1);
         this.color = Color.GREEN;
     }
 

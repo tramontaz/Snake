@@ -60,7 +60,9 @@ class StartNewGame implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        gameOver = false;
         GUI.newGameWindow.setVisible(true);
+        Thread.currentThread().interrupt();
     }
 
     private KeyAdapter keyAdapter = new KeyAdapter() {
