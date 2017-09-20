@@ -22,7 +22,7 @@ class Food extends Point {
         do {
             x = random.nextInt(GUI.FIELD_WIDTH);
             y = random.nextInt(GUI.FIELD_HEIGHT);
-        } while (GUI.snake.isInsideSnake(x, y));
+        } while (StartNewGame.snake.isInsideSnake(x, y));
         this.setXY(x, y);
     }
 }

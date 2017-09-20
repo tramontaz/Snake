@@ -33,10 +33,10 @@ class Snake {
         if (x < 0) x = GUI.FIELD_WIDTH - 1;
         if (y > GUI.FIELD_HEIGHT) y = 0;
         if (y < 0) y = GUI.FIELD_HEIGHT - 1;
-        GUI.gameOver = isInsideSnake(x, y);
+        StartNewGame.gameOver = isInsideSnake(x, y);
         snake.add(0, new Point(x, y));
-        if (isFood(GUI.food)) {
-            GUI.food.eat();
+        if (isFood(StartNewGame.food)) {
+            StartNewGame.food.eat();
         } else snake.remove(snake.size() - 1);
 
     }
