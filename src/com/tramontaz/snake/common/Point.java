@@ -1,3 +1,5 @@
+package com.tramontaz.snake.common;
+
 import java.awt.*;
 
 class Point extends ImagePanel {
